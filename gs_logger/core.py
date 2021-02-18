@@ -12,9 +12,10 @@ class Logger():
 
     def __init__(self):
         self.__msg=""
-        rospy.wait_for_service("geoscan/log_service")
-        self.__log_service=ServiceProxy("geoscan/log_service",Log)
-        self.__log_sub=Subscriber("geoscan/log_topic",String,self.__callback)
+        rospy.wait_for_service("geoscan/get_log")
+        rospy.wait_for_message("geoscan/log",String)
+        self.__log_service=ServiceProxy("geoscan/get_log",Log)
+        self.__log_sub=Subscriber("geoscan/log",String,self.__callback)
 
     def lastMsgs(self):
         return self.__msg

@@ -16,19 +16,23 @@
 
 #### Поля:
 * __log_service - rospy.ServiceProxy: gs_interfaces.srv.Log
-* __msgs - list: str
+* __log_sub - rospy.Subscriber: std_msgs.msg.String
 
 #### Методы:
 * lastMsgs - возвращает последнее сообщение лога
 * allMsgs - возвращает весь лог
 
 #### Используемые сервисы:
-* geoscan/log_service (gs_interfaces/Log)
+* geoscan/get_log (gs_interfaces/Log)
+
+#### Используемые топики:
+* geoscan/log (std_msgs/String)
 
 ## Необходимые пакеты:
 ROS:
 * gs_interfaces
 * gs_core
+* std_msgs
 
 ## Примечание:
-Все классы в данном пакете могут быть использованы только при запущеной ноде ros_serial_node.py из пакета gs_core
+Все классы в данном пакете могут быть использованы только при запущеной ноде ros_plaz_node.py из пакета gs_core
