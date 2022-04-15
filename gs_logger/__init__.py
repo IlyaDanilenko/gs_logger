@@ -1,1 +1,1 @@
-from .core import Logger
+from .gs_logger import Logger
